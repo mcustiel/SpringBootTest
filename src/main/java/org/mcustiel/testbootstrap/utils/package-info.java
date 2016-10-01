@@ -5,4 +5,4 @@
  * @author mcustiel
  *
  */
-package org.mcustiel.testbootstrap.service;
+package org.mcustiel.testbootstrap.utils;
