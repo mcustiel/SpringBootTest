@@ -5,7 +5,7 @@ import java.util.Optional;
 import org.mcustiel.testbootstrap.repository.entity.DashboardEntity;
 
 public interface DashboardDao {
-    Optional<DashboardEntity> getDashboard(Long id);
+    Optional<DashboardEntity> getById(Long id);
 
-    DashboardEntity createDashboard(DashboardEntity entity);
+    DashboardEntity create(DashboardEntity entity);
 }

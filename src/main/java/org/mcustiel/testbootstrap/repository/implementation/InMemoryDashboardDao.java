@@ -15,7 +15,7 @@ public class InMemoryDashboardDao implements DashboardDao {
     }
 
     @Override
-    public Optional<DashboardEntity> getDashboard(Long id) {
+    public Optional<DashboardEntity> getById(Long id) {
 	try {
 	    return Optional.of(dashboards.get(id.intValue() - 1));
 	} catch (IndexOutOfBoundsException e) {
@@ -24,7 +24,7 @@ public class InMemoryDashboardDao implements DashboardDao {
     }
 
     @Override
-    synchronized public DashboardEntity createDashboard(DashboardEntity entity) {
+    synchronized public DashboardEntity create(DashboardEntity entity) {
 	entity.setId(new Long(dashboards.size() + 1));
 	dashboards.add(entity);
 	return entity;
