@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost/test
+    username: dbuser
+    password: dbpass
+    driver-class-name: com.mysql.jdbc.Driver
+    testWhileIdle: true
+    validationQuery: SELECT 1
+
+javax:
+  persistence:
+    jdbc:
+      url: jdbc:mysql://localhost/test
+      username: dbuser
+      password: dbpass
+      drive: com.mysql.jdbc.Driver

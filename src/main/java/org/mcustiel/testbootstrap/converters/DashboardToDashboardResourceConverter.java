@@ -3,7 +3,9 @@ package org.mcustiel.testbootstrap.converters;
 import org.mcustiel.testbootstrap.domain.Dashboard;
 import org.mcustiel.testbootstrap.input.DashboardResource;
 import org.springframework.core.convert.converter.Converter;
+import org.springframework.stereotype.Component;
 
+@Component
 public class DashboardToDashboardResourceConverter implements
 	Converter<Dashboard, DashboardResource> {
 

@@ -3,7 +3,9 @@ package org.mcustiel.testbootstrap.converters;
 import org.mcustiel.testbootstrap.domain.Category;
 import org.mcustiel.testbootstrap.input.CategoryResource;
 import org.springframework.core.convert.converter.Converter;
+import org.springframework.stereotype.Component;
 
+@Component
 public class CategoryToCategoryResourceConverter implements
 	Converter<Category, CategoryResource> {
 
