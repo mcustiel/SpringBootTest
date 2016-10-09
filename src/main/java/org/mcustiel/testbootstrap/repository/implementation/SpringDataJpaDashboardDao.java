@@ -1,5 +1,7 @@
 package org.mcustiel.testbootstrap.repository.implementation;
 
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Optional;
 
 import javax.inject.Inject;
@@ -10,7 +12,6 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class SpringDataJpaDashboardDao implements DashboardDao {
-
     private SpringDataJpaDashboardDaoRepository repository;
 
     @Inject
@@ -26,8 +27,17 @@ public class SpringDataJpaDashboardDao implements DashboardDao {
 
     @Override
     public DashboardEntity create(DashboardEntity entity) {
-	// TODO Auto-generated method stub
-	return null;
+	repository.save(entity);
+	return entity;
     }
 
+    @Override
+    public List<DashboardEntity> list() {
+	Iterable<DashboardEntity> iterator = repository.findAll();
+	List<DashboardEntity> list = new LinkedList<DashboardEntity>();
+	iterator.forEach(dashboardEntity -> {
+	    list.add(dashboardEntity);
+	});
+	return list;
+    }
 }

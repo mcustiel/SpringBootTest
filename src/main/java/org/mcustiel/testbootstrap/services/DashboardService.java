@@ -13,24 +13,28 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class DashboardService {
-    @Inject
-    private DashboardDao dashboardsDao;
-    @Inject
+    private DashboardDao dashboardDao;
     private ConversionService conversion;
 
+    @Inject
+    public DashboardService(DashboardDao dashboardDao,
+	    ConversionService conversion) {
+	this.dashboardDao = dashboardDao;
+	this.conversion = conversion;
+    }
+
     public Optional<Dashboard> getById(DashboardId id) {
-	Optional<DashboardEntity> dashboard = dashboardsDao.getById(id
+	Optional<DashboardEntity> dashboard = dashboardDao.getById(id
 		.getValue()
 		.longValue());
 	if (dashboard.isPresent()) {
 	    return Optional.of(conversion.convert(dashboard, Dashboard.class));
 	}
 	return Optional.empty();
-	
     }
     
     public Dashboard createDashboard(Dashboard dashboard) {
-	DashboardEntity entity = dashboardsDao.create(conversion.convert(
+	DashboardEntity entity = dashboardDao.create(conversion.convert(
 		dashboard,
 		DashboardEntity.class));
 	return dashboard.withId(new DashboardId(entity.getId().intValue()));
