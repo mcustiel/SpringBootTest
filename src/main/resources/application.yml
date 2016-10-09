@@ -1,11 +1,17 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost/test
+    url: jdbc:mysql://localhost:3306/test
     username: dbuser
     password: dbpass
-    driver-class-name: com.mysql.jdbc.Driver
+    #driver-class-name: com.mysql.jdbc.Driver
     testWhileIdle: true
     validationQuery: SELECT 1
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+    hibernate:
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
 
 javax:
   persistence:
