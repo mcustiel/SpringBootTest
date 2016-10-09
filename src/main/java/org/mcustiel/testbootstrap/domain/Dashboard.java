@@ -31,6 +31,11 @@ public class Dashboard {
 	return user;
     }
 
+    public Dashboard withId(DashboardId id) {
+	return Dashboard.builder().withId(id).withName(name)
+		.withPosition(position).withUser(user).build();
+    }
+
     public static Builder builder() {
 	return new Builder();
     }

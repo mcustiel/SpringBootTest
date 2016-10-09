@@ -6,7 +6,9 @@ import javax.inject.Inject;
 
 import org.mcustiel.testbootstrap.repository.DashboardDao;
 import org.mcustiel.testbootstrap.repository.entity.DashboardEntity;
+import org.springframework.stereotype.Service;
 
+@Service
 public class SpringDataJpaDashboardDao implements DashboardDao {
 
     private SpringDataJpaDashboardDaoRepository repository;
@@ -19,9 +21,7 @@ public class SpringDataJpaDashboardDao implements DashboardDao {
 
     @Override
     public Optional<DashboardEntity> getById(Long id) {
-	repository.getById(id);
-	// TODO Auto-generated method stub
-	return null;
+	return repository.getById(id);
     }
 
     @Override
